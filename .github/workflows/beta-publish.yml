@@ -6,23 +6,23 @@ on:
       - master
 
 jobs:
-  # Checkout repository
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
-      # Install dependencies
       - name: Install Dependencies
         run: npm install
 
       - name: Run ESLint
         run: npm run lint
-
-      # Build Nuxt app
-      - name: Build Nuxt Application
+        
+      - name: Build Application
         run: npm run build

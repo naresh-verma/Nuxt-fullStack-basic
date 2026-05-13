@@ -1,6 +1,6 @@
 import { getData } from '../../db/utils';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
     const data = await getData();
 
     return {

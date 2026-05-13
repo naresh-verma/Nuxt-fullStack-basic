@@ -1,0 +1,32 @@
+name: deploy vue application
+permissions:
+  contents: write
+  pull-requests: read
+
+on:
+  pull_request:
+  push:
+   branches:
+   - master
+
+jobs:
+  # Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+      # Build Nuxt app
+      - name: Build Nuxt Application
+        run: npm run build

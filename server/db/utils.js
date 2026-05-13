@@ -11,9 +11,10 @@ export async function getData() {
     const data = await fs.readFile(dataFilePath, "utf-8");
     return JSON.parse(data);
   } catch (error) {
+    console.log('error', error)
     throw createError({
       statusCode: 500,
-      message: "Error reading data",
+      message: "Error reading data" ,
     });
   }
 }
@@ -22,6 +23,7 @@ export async function saveData(data) {
   try {
     await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2), "utf-8");
   } catch (error) {
+    console.log('error', error)
     throw createError({
       statusCode: 500,
       message: "Error saving data",

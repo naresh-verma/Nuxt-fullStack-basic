@@ -3,6 +3,9 @@ import path from "path";
 
 const dataFilePath = path.resolve("server/db/data.json");
 
+/**
+ * Methods
+ */
 export async function getData() {
   try {
     const data = await fs.readFile(dataFilePath, "utf-8");

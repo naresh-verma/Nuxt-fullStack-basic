@@ -1,13 +1,9 @@
-name: deploy vue application
-permissions:
-  contents: write
-  pull-requests: read
+name: Nuxt CI/CD
 
 on:
-  pull_request:
   push:
-   branches:
-   - master
+    branches:
+      - master
 
 jobs:
   # Checkout repository
